@@ -1,4 +1,6 @@
-package employee;
+package test;
+
+import employee.Employee;
 
 import javax.jdo.Extent;
 import javax.jdo.JDOHelper;

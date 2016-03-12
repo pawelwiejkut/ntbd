@@ -85,14 +85,7 @@ public class Employee
 //		getProjects().remove(project);
 //	}
 //
-//	public Employee(String name, Date hiredate, String job, double salary, Department department ) {
-//		this.name = name;
-//		this.hiredate = hiredate;
-//		this.job = job;
-//		this.salary = salary;
-//		this.department = department;
-//
-//	}
+
 
 	public String toString()
 	{

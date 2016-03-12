@@ -1,5 +1,8 @@
-package employee;
+package test;
 
+import employee.Department;
+import employee.Employee;
+import employee.Project;
 import org.jfairy.Fairy;
 import org.jfairy.producer.company.Company;
 import org.jfairy.producer.person.Person;
@@ -47,8 +50,6 @@ public class CreateEmp
 		List objects = new LinkedList ();
 		Calendar c = Calendar.getInstance();
 
-
-
 		Department dept1 = new Department();
 		dept1.setLocation("Wroclaw");
 		dept1.setName("Oddzial");
@@ -74,10 +75,6 @@ public class CreateEmp
 		proj3.setSubject("Modul wymiany dokumentów");
 		objects.add (proj3);
 
-
-//		c.set(1967,5,26);
-
-//		Employee emp1 = new Employee("Dyrektor",c.getTime(),"Dyrektor",3400,dept1);
 		Employee emp1 = new Employee();
 		emp1.setJob("Dyrektor");
 		emp1.setName("Jan Kowalski");

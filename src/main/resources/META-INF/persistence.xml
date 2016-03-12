@@ -12,7 +12,7 @@
         <exclude-unlisted-classes/>
         <properties>
             <!-- ENABLE THESE FOR H2 -->
-            <property name="javax.jdo.option.ConnectionURL" value="jdbc:h2:tcp://localhost/~/test"/>
+            <property name="javax.jdo.option.ConnectionURL" value="jdbc:h2:tcp://localhost/~/IdeaProjects/ntbd/data/db"/>
             <property name="javax.jdo.option.ConnectionDriverName" value="org.h2.Driver"/>
             <property name="javax.jdo.option.ConnectionUserName" value="sa"/>
             <property name="javax.jdo.option.ConnectionPassword" value=""/>
