@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="H2 - db" uuid="44c1ada8-8214-4aa7-8ec5-dc9b3ac876cb">
+    <database-info product="H2" version="1.3.176 (2014-04-05)" jdbc-version="4.0" driver-name="H2 JDBC Driver" driver-version="1.3.176 (2014-04-05)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
+    <schema name="PUBLIC" catalog="DB"/>
+    <table name="DEPARTMENT" schema="PUBLIC" catalog="DB" type="TABLE">
+      <column name="DEPARTMENT_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="KE5FWFQgVkFMVUUgRk9SIFBVQkxJQy5TWVNURU1fU0VRVUVOQ0VfQ0IyRTE4QzZfOUY3MF80RTY0X0FCMjZfNDAyQUZBNkMyMjdBKQ==" autoIncrement="true"/>
+      <column name="HEAD_EMPLOYEES_ID_OID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="LOCATION" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="NAME" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="CONSTRAINT_4" columns="DEPARTMENT_ID"/>
+      <foreign-key name="DEPARTMENT_FK1" columns="HEAD_EMPLOYEES_ID_OID" ref-table="EMPLOYEES" ref-schema="PUBLIC" ref-catalog="DB" ref-columns="EMPLOYEES_ID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <index name="DEPARTMENT_N49" unique="false" columns="HEAD_EMPLOYEES_ID_OID"/>
+    </table>
+    <table name="EMPLOYEES" schema="PUBLIC" catalog="DB" type="TABLE">
+      <column name="EMPLOYEES_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="KE5FWFQgVkFMVUUgRk9SIFBVQkxJQy5TWVNURU1fU0VRVUVOQ0VfQTkxMjY1NDZfNjI1Ql80RDhEXzkyNEVfMzFDNDk0RjY4QUI1KQ==" autoIncrement="true"/>
+      <column name="DEPARTMENT" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="HIREDATE" sqlType="TIMESTAMP" precision="23" scale="10" nullable="true" jdbcType="93"/>
+      <column name="JOB" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SALARY" sqlType="DOUBLE" precision="17" scale="0" nullable="false" jdbcType="8"/>
+      <primary-key name="CONSTRAINT_43" columns="EMPLOYEES_ID"/>
+      <foreign-key name="EMPLOYEES_FK1" columns="DEPARTMENT" ref-table="DEPARTMENT" ref-schema="PUBLIC" ref-catalog="DB" ref-columns="DEPARTMENT_ID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <index name="EMPLOYEES_N49" unique="false" columns="DEPARTMENT"/>
+    </table>
+    <table name="PROJECTS" schema="PUBLIC" catalog="DB" type="TABLE">
+      <column name="PROJECTS_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="KE5FWFQgVkFMVUUgRk9SIFBVQkxJQy5TWVNURU1fU0VRVUVOQ0VfRDcxQjVCODJfNkVDRl80QkJCX0FERjdfQTQzMjBGQTUyN0NEKQ==" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SUBJECT" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="CONSTRAINT_F" columns="PROJECTS_ID"/>
+    </table>
+  </data-source>
+</component>
