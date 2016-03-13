@@ -1,7 +1,6 @@
 package employee;
 
 import org.h2.command.dml.Set;
-
 import javax.jdo.annotations.PersistenceCapable;
 import java.util.Date;
 

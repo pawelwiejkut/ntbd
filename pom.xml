@@ -42,7 +42,6 @@
             <version>0.3.0</version>
         </dependency>
 
-
         <!-- ENABLE THIS FOR H2 -->
         <dependency>
             <groupId>org.datanucleus</groupId>
