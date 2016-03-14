@@ -5,7 +5,6 @@
 
         <class name="Employee" table="EMPLOYEES">
                     <inheritance strategy="new-table"/>
-
             <field name="name">
                 <column name="name" />
             </field>
@@ -22,7 +21,7 @@
                 <column name="department" />
             </field>
             <field name="projects">
-                <column name="projects" />
+                <collection element-type="employee.Project" />
             </field>
         </class>
 

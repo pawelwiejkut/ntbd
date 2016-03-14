@@ -3,23 +3,23 @@ package test;
 import employee.Department;
 import employee.Employee;
 import employee.Project;
-import org.jfairy.Fairy;
 import test.DataFactory.impl.DataFactExt;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
-//import org.jfairy.producer.person.Person;
 
 public class CreateEmp
 {
 	private static PersistenceManager pm;
 	private static Transaction tx;
 	private static Query q;
-	private static Fairy plFairy = Fairy.create(Locale.forLanguageTag("pl"));
 	private static DataFactExt df ;
 	private static List objects = new LinkedList ();
 
@@ -76,16 +76,18 @@ public class CreateEmp
 
 	public static void createObjects(PersistenceManager pm) 	{
 
-		for(int i=0;i<20;i++) {
-			generateProject();
+
+		for(int i=0;i<50;i++) {
 			Employee emp ;
 			Department dep;
 			dep = generateDepartment();
 			emp = generateEmployee();
+			emp.addProject(generateProject());
+			emp.addProject(generateProject());
+			generateEmployee();
 			emp.setDepartment(dep);
 			dep.setHead(emp);
 		}
-
 
 		pm.makePersistentAll (objects);
 		System.out.println ("Created " + objects.size () + " new objects.");

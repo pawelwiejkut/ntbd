@@ -4,6 +4,6 @@ Maven Instructions
 
 2. Run the command *mvn datanucleus:schema-create*. This creates the schema for the tutorial.
 
-3. Run the command *mvn exec:java*. This runs the tutorial.
+3. Run the command *exec:java*. This runs the tutorial.
 
 4. Run the command *mvn datanucleus:schema-delete*. This deletes the schema for the tutorial

@@ -1,8 +1,10 @@
 package employee;
 
-import org.h2.command.dml.Set;
+
 import javax.jdo.annotations.PersistenceCapable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @PersistenceCapable
@@ -65,25 +67,25 @@ public class Employee
 		salary = d;
 	}
 
-//	public Set getProjects()
-//	{
-//		if( projects == null )
-//		{
-//			projects = new HashSet();
-//		}
-//		return projects;
-//	}
-//
-//	public void addProject(Project project)
-//	{
-//		getProjects().add(project);
-//	}
-//
-//	public void removeProject(Project project)
-//	{
-//		getProjects().remove(project);
-//	}
-//
+	public Set getProjects()
+	{
+		if( projects == null )
+		{
+			projects = new HashSet();
+		}
+		return projects;
+	}
+
+	public void addProject(Project project)
+	{
+		getProjects().add(project);
+	}
+
+	public void removeProject(Project project)
+	{
+		getProjects().remove(project);
+	}
+
 
 
 	public String toString()

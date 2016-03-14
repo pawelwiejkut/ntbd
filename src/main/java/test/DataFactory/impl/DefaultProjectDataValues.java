@@ -7,8 +7,8 @@ import test.DataFactory.ProjectDataValues;
  */
 public class DefaultProjectDataValues implements ProjectDataValues {
 
-    private static String[] projectName= {"FK","WWW","EDI"};
-    private static String[] projectSubject={"System finansowo-księgowy","System wymiany dokumnetów","Portal korporacyjny"};
+    private static String[] projectName= {"FK","WWW","EDI","SAP"};
+    private static String[] projectSubject={"System finansowo-księgowy","System wymiany dokumnetów","Portal korporacyjny","System ERP","System MRP"};
 
     public String[] getProjectName() {
         return projectName;

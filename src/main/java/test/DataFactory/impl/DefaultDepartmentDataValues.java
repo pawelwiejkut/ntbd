@@ -7,7 +7,7 @@ import test.DataFactory.DepartmentDataValues;
  */
 public class DefaultDepartmentDataValues implements DepartmentDataValues{
 
-   String[] departmentName={"Oddział","Centrala"};
+   String[] departmentName={"Oddział","Centrala","Filia"};
 
     @Override
     public String[] getDepartmentName() {

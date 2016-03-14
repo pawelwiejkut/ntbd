@@ -55,7 +55,7 @@ public final class DataFactExt extends DataFactory {
     public String getDepartmentLocation(){
         Fairy plFairy = Fairy.create(Locale.forLanguageTag("pl"));
         Person person = plFairy.person();
-        return person.getAddress().toString().replaceAll("\\d","").replaceAll("-","").replaceAll(" ","");
+        return person.getAddress().toString().replaceAll("\\d","").replaceAll("-","").trim();
     }
 
 }
