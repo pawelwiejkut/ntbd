@@ -9,9 +9,6 @@ import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -96,51 +93,7 @@ public class CreateEmp
 		System.out.println ("Created " + objects.size () + " new objects.");
 	}
 
-//	Lista 3 zad 1
-	public static void firstLetQuery() {
-	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	System.out.println("Enter first letter of project name");
-	String s = null;
-	try {
-		s = br.readLine();
-	} catch (IOException e) {
-		e.printStackTrace();
-	}
-	Query q = pm.newQuery(Project.class);
-	q.setFilter("name.startsWith(\""+s+"\")");
-	List<Project> results = (List<Project>) q.execute(20);
-	Iterator<Project> iter = results.iterator();
 
-	while (iter.hasNext()) {
-		Project p = iter.next();
-		System.out.println(">  " + p);
-
-	}
-
-}
-//	https://db.apache.org/jdo/jdoql_methods.html
-
-	public static void letInQuery() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Enter letter in project name");
-		String s = null;
-		try {
-			s = br.readLine();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		Query q = pm.newQuery(Project.class);
-		q.setFilter("name.matches(\"\\\\BW|W\\\\B\")");
-		List results = (List)q.execute();
-		Iterator<Project> iter = results.iterator();
-
-		while (iter.hasNext()) {
-			Project p = iter.next();
-			System.out.println(">  " + p);
-
-		}
-
-	}
 
 	public static void main(String[] args) {
 		try {
@@ -155,8 +108,6 @@ public class CreateEmp
 			createObjects(pm);
 			tx.commit();
 
-//			firstLetQuery();
-			letInQuery();
 			pm.close ();
 		} catch (Exception e) { e.printStackTrace(); }
 	}
