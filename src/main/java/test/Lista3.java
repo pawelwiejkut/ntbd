@@ -111,6 +111,7 @@ public class Lista3 {
         l=input.nextInt();
         Query q = pm.newQuery(Employee.class);
         q.setFilter("salary > "+f+" && salary < "+l);
+        q.setOrdering("avg(salary)");
         List results = (List)q.execute();
         results.forEach(System.out::println);
 
@@ -158,7 +159,7 @@ public class Lista3 {
             pm = JDOHelper.getPersistenceManagerFactory("Tutorial").getPersistenceManager();
             tx = pm.currentTransaction();
 
-            exercise4b();
+            exercise3a();
 
             pm.close ();
         } catch (Exception e) { e.printStackTrace(); }
