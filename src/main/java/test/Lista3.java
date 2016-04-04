@@ -104,32 +104,32 @@ public class Lista3 {
 
     public static void exercise3a(){
         Scanner input = new Scanner( System.in );
-        System.out.println("Enter first and seccond number");
+        System.out.println("Enter first and second number");
         int f ;
         int l;
         f=input.nextInt();
         l=input.nextInt();
         Query q = pm.newQuery(Employee.class);
-        q.setFilter("salary > "+f+" && salary < "+l);
-        q.setOrdering("avg(salary)");
-        List results = (List)q.execute();
+        q.setResult("department, avg(salary)");
+        q.setGrouping("department HAVING avg(salary) >= :x && avg(salary) <= :y");
+        q.setOrdering("2 desc");
+        List results = (List)q.execute(f,l);
         results.forEach(System.out::println);
 
     }
 
     public static void exercise3b(){
-        Query averageSalaryQuery = pm.newQuery(Employee.class);
-        averageSalaryQuery.setFilter("department!=null");
-        averageSalaryQuery.setResult("count(department)");
-
+        Scanner input = new Scanner( System.in );
+        System.out.println("Enter first and second number");
+        int f ;
+        int l;
+        f=input.nextInt();
+        l=input.nextInt();
         Query q = pm.newQuery(Employee.class);
-        q.declareVariables("long department1");
-        q.declareVariables("long department2");
-
-
-        q.addSubquery(averageSalaryQuery, "long department1","long department2");
-
-        List results = (List)q.execute();
+        q.setResult("department,avg(salary),count(department)");
+        q.setGrouping("department HAVING count(department) >= :x && count(department) <= :y");
+        q.setOrdering("3 desc");
+        List results = (List)q.execute(f,l);
         results.forEach(System.out::println);
 
     }
@@ -143,13 +143,15 @@ public class Lista3 {
     }
 
     public static void exercise4b(){
-        Query q1 = pm.newQuery(Employee.class);
-        q1.setResult("department");
-        List results = (List)q1.execute();
+        Query averageSalaryQuery = pm.newQuery(Department.class);
 
-        Query q = pm.newQuery(Department.class,"Arrays.asList(result).contains(department.head)");
+        Query q = pm.newQuery(Employee.class, "department!=depClass");
+        q.declareImports("import employee.Department");
 
-        List results2 = (List)q.execute();
+        q.declareVariables("Department depClass");
+        q.addSubquery(averageSalaryQuery, "Department depClass", null);
+
+        List results = (List)q.execute();
         results.forEach(System.out::println);
 
     }
@@ -159,7 +161,7 @@ public class Lista3 {
             pm = JDOHelper.getPersistenceManagerFactory("Tutorial").getPersistenceManager();
             tx = pm.currentTransaction();
 
-            exercise3a();
+            exercise4b();
 
             pm.close ();
         } catch (Exception e) { e.printStackTrace(); }
