@@ -8,6 +8,8 @@
         <class>employee.Department</class>
         <class>employee.Employee</class>
         <class>employee.Project</class>
+        <class>employee.Address</class>
+        <class>employee.Task</class>
 
         <exclude-unlisted-classes/>
         <properties>

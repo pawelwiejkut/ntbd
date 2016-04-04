@@ -8,97 +8,79 @@ import java.util.Set;
 
 
 @PersistenceCapable
-public class Employee
-{
+public class Employee {
 	private String name;
 	private Date hiredate;
 	private String job;
 	private double salary;
 	private Department department;
-	private Set projects;
+	private Set project;
 
-	public Department getDepartment()
-	{
+	public Department getDepartment() {
 		return department;
 	}
 
-	public Date getHiredate()
-	{
+	public Date getHiredate() {
 		return hiredate;
 	}
 
-	public String getJob()
-	{
+	public String getJob() {
 		return job;
 	}
 
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
-	public double getSalary()
-	{
+	public double getSalary() {
 		return salary;
 	}
 
-	public void setDepartment(Department department)
-	{
+	public void setDepartment(Department department) {
 		this.department = department;
 	}
 
-	public void setHiredate(Date date)
-	{
+	public void setHiredate(Date date) {
 		hiredate = date;
 	}
 
-	public void setJob(String string)
-	{
+	public void setJob(String string) {
 		job = string;
 	}
 
-	public void setName(String string)
-	{
+	public void setName(String string) {
 		name = string;
 	}
 
-	public void setSalary(double d)
-	{
+	public void setSalary(double d) {
 		salary = d;
 	}
 
-	public Set getProjects()
-	{
-		if( projects == null )
-		{
-			projects = new HashSet();
+	public Set getProject() {
+		if (project == null) {
+			project = new HashSet();
 		}
-		return projects;
+		return project;
 	}
 
-	public void addProject(Project project)
-	{
-		getProjects().add(project);
+	public void addProject(Project project) {
+		getProject().add(project);
 	}
 
-	public void removeProject(Project project)
-	{
-		getProjects().remove(project);
+	public void removeProject(Project project) {
+		getProject().remove(project);
 	}
 
-
-
-	public String toString()
-	{
-		return " [NAME] "
-				+ name
-				+ " [DEPARTMENT] "
-				+ department
-				+ " [HIREDATE] "
-				+ hiredate
-				+ " [JOB] "
-				+ job
-				+ " [SALARY] "
-				+ salary;
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("Employee{");
+		sb.append("name='").append(name).append('\'');
+		sb.append(", hiredate=").append(hiredate);
+		sb.append(", job='").append(job).append('\'');
+		sb.append(", salary=").append(salary);
+		sb.append(", department=").append(department);
+		sb.append(", project=").append(project);
+		sb.append('}');
+		return sb.toString();
 	}
 }

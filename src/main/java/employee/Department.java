@@ -6,13 +6,10 @@ import javax.jdo.annotations.PersistenceCapable;
 public class Department
 {
 	private String name;
-	private String location;
+
 	private Employee head;
 
-	public String getLocation()
-	{
-		return location;
-	}
+	private Address address;
 
 	public String getName()
 	{
@@ -22,11 +19,6 @@ public class Department
 	public Employee getHead()
 	{
 		return head;
-	}
-
-	public void setLocation(String s)
-	{
-		location = s;
 	}
 
 	public void setName(String s)
@@ -39,8 +31,22 @@ public class Department
 		head = h;
 	}
 
-	public String toString()
-	{
-		return " [NAME] " + name + " [LOCATION] " + location;
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("Department{");
+		sb.append("name='").append(name).append('\'');
+		sb.append(", head=").append(head);
+		sb.append(", address=").append(address);
+		sb.append('}');
+		return sb.toString();
 	}
 }

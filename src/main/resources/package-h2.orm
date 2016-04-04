@@ -20,7 +20,7 @@
             <field name="department">
                 <column name="department" />
             </field>
-            <field name="projects">
+            <field name="project">
                 <collection element-type="employee.Project" />
             </field>
         </class>
@@ -33,6 +33,12 @@
             <field name="subject">
                 <column name="subject" />
             </field>
+            <field name="task">
+               <collection element-type="employee.Task" />
+            </field>
+            <field name="employee">
+               <collection element-type="employee.Employee" />
+            </field>
         </class>
 
         <class name="Department" table="Department">
@@ -40,11 +46,43 @@
             <field name="name">
                 <column length="40"/>
             </field>
-            <field name="location">
+            <field name="address">
                 <column length="40"/>
             </field>
             <field name="head">
                 <column length="40"/>
+            </field>
+        </class>
+
+        <class name="Address" table="Address">
+            <inheritance strategy="new-table"/>
+            <field name="city">
+                <column length="40"/>
+            </field>
+            <field name="street">
+                <column length="40"/>
+            </field>
+            <field name="postcode">
+                <column length="40"/>
+            </field>
+            <field name="department">
+                <column length="40"/>
+            </field>
+        </class>
+
+        <class name="Task" table="Task">
+            <inheritance strategy="new-table"/>
+            <field name="description">
+                <column length="40"/>
+            </field>
+            <field name="startDate">
+                <column length="23"/>
+            </field>
+            <field name="endDate">
+                <column length="23"/>
+            </field>
+            <field name="project">
+                <column length="23"/>
             </field>
         </class>
     </package>

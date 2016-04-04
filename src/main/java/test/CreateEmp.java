@@ -1,8 +1,6 @@
 package test;
 
-import employee.Department;
-import employee.Employee;
-import employee.Project;
+import employee.*;
 import test.DataFactory.impl.DataFactExt;
 
 import javax.jdo.JDOHelper;
@@ -60,7 +58,6 @@ public class CreateEmp
 		Department department = new Department();
 		df = new DataFactExt();
 		department.setName(df.getDepartmentName());
-		department.setLocation(df.getDepartmentLocation());
 		objects.add(department);
 		return department;
 	}
@@ -74,20 +71,59 @@ public class CreateEmp
 		return project;
 	}
 
+	public static Address generateAddress(){
+		Address address = new Address();
+		df = new DataFactExt();
+		address.setCity(df.getCity());
+		address.setStreet(df.getAddress());
+		address.setPostcode(df.getAddressLine2());
+		objects.add(address);
+		return address;
+	}
+
+	public static Task generateTask(){
+		Task task = new Task();
+		df = new DataFactExt();
+		task.setDescription(df.getProjectSubject());
+		task.setStartDate(df.getEmployeeHireDate());
+		task.setEndDate(df.getBirthDate());
+		objects.add(task);
+		return task;
+	}
 	public static void createObjects(PersistenceManager pm) 	{
 
 
 		for(int i=0;i<50;i++) {
 			Employee emp ;
+			Employee emp1;
 			Department dep;
+			Address adr;
+			Task task;
+			Project proj;
 			dep = generateDepartment();
 			emp = generateEmployee();
-			emp.addProject(generateProject());
-			emp.addProject(generateProject());
-			generateEmployee();
-			emp.setDepartment(dep);
+			emp1 = generateEmployee();
+
+			adr = generateAddress();
+			task = generateTask();
+			proj = generateProject();
+
+			adr.setDepartment(dep);
+			proj.addEmployee(emp1);
+			proj.addEmployee(emp);
+			proj.addTask(task);
 			dep.setHead(emp);
+			dep.setAddress(adr);
+
+			task.setProject(proj);
+
+			emp.addProject(proj);
+			emp1.addProject(proj);
+			emp.setDepartment(dep);
+			emp1.setDepartment(dep);
 		}
+
+
 
 		pm.makePersistentAll (objects);
 		System.out.println ("Created " + objects.size () + " new objects.");
