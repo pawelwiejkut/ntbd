@@ -3,7 +3,7 @@
 <orm>
     <package name="employee">
 
-        <class name="Employee" table="EMPLOYEES">
+        <class name="Employee" table="EMPLOYEES" identity-type="datastore">
                     <inheritance strategy="new-table"/>
             <field name="name">
                 <column name="name" />
@@ -21,11 +21,12 @@
                 <column name="department" />
             </field>
             <field name="project">
-                <collection element-type="employee.Project" />
+                <collection element-type="employee.Project" persistence-modifier="persistent"/>
+            <join/>
             </field>
         </class>
 
-        <class name="Project" table="PROJECTS">
+        <class name="Project" table="PROJECTS" identity-type="datastore">
             <inheritance strategy="new-table"/>
             <field name="name">
                 <column name="name"/>
@@ -37,7 +38,8 @@
                <collection element-type="employee.Task" />
             </field>
             <field name="employee">
-               <collection element-type="employee.Employee" />
+               <collection element-type="employee.Employee" persistence-modifier="persistent"/>
+            <join/>
             </field>
         </class>
 

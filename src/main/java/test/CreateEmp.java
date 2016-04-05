@@ -100,6 +100,8 @@ public class CreateEmp
 			Address adr;
 			Task task;
 			Project proj;
+			Project proj1;
+
 			dep = generateDepartment();
 			emp = generateEmployee();
 			emp1 = generateEmployee();
@@ -107,11 +109,15 @@ public class CreateEmp
 			adr = generateAddress();
 			task = generateTask();
 			proj = generateProject();
+			proj1 = generateProject();
 
 			adr.setDepartment(dep);
 			proj.addEmployee(emp1);
 			proj.addEmployee(emp);
 			proj.addTask(task);
+			proj1.addEmployee(emp);
+			proj1.addEmployee(emp1);
+			proj1.addTask(task);
 			dep.setHead(emp);
 			dep.setAddress(adr);
 

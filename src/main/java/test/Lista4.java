@@ -1,6 +1,6 @@
 package test;
 
-import employee.Employee;
+import employee.Task;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
@@ -21,16 +21,15 @@ public class Lista4 {
 
     public static void exercise2a(){
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter department name");
+        System.out.println("Enter city name");
         String s = null;
         try {
             s = br.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Query q = pm.newQuery(Employee.class);
-        q.setFilter(String.format("department.address.city==\"%s\"",s));
-        q.setResult("project");
+        Query q = pm.newQuery(Task.class);
+        q.setFilter(String.format("project.employee.contains(emp) && emp.department.address.city==\"%s\"",s));
         List results = (List)q.execute();
         results.forEach(System.out::println);
     }
