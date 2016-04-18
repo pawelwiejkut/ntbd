@@ -8,8 +8,7 @@ import java.util.Set;
 
 
 @PersistenceCapable
-public class Employee {
-	private String name;
+public class Employee extends Person {
 	private Date hiredate;
 	private String job;
 	private double salary;
@@ -28,10 +27,6 @@ public class Employee {
 		return job;
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	public double getSalary() {
 		return salary;
 	}
@@ -46,10 +41,6 @@ public class Employee {
 
 	public void setJob(String string) {
 		job = string;
-	}
-
-	public void setName(String string) {
-		name = string;
 	}
 
 	public void setSalary(double d) {
@@ -73,14 +64,12 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("Employee{");
-		sb.append("name='").append(name).append('\'');
-		sb.append(", hiredate=").append(hiredate);
-		sb.append(", job='").append(job).append('\'');
-		sb.append(", salary=").append(salary);
-		sb.append(", department=").append(department);
-		sb.append(", project=").append(project);
-		sb.append('}');
-		return sb.toString();
+		return "Employee{" +
+				"hiredate=" + hiredate +
+				", job='" + job + '\'' +
+				", salary=" + salary +
+				", department=" + department +
+				", project=" + project +
+				'}';
 	}
 }

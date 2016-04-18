@@ -10,6 +10,8 @@
         <class>employee.Project</class>
         <class>employee.Address</class>
         <class>employee.Task</class>
+        <class>employee.Person</class>
+        <class>employee.Applicant</class>
 
         <exclude-unlisted-classes/>
         <properties>

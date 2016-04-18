@@ -90,6 +90,19 @@ public class CreateEmp
 		objects.add(task);
 		return task;
 	}
+
+	public static Applicant generateApplicant(){
+		Applicant applicant= new Applicant();
+		df = new DataFactExt();
+		applicant.setName(df.getName());
+		applicant.setPosition(df.getEmployeeJob());
+		applicant.setApplicationdate(df.getBirthDate());
+		objects.add(applicant);
+		return applicant;
+	}
+
+
+
 	public static void createObjects(PersistenceManager pm) 	{
 
 
@@ -98,18 +111,30 @@ public class CreateEmp
 			Employee emp1;
 			Department dep;
 			Address adr;
+			Address adr1;
+			Address adr3;
+			Address adr4;
 			Task task;
+			Task task1;
 			Project proj;
 			Project proj1;
+			Applicant applic;
 
 			dep = generateDepartment();
 			emp = generateEmployee();
 			emp1 = generateEmployee();
 
 			adr = generateAddress();
+			adr1=generateAddress();
 			task = generateTask();
 			proj = generateProject();
 			proj1 = generateProject();
+			adr3 = generateAddress();
+			adr4=generateAddress();
+			task1=generateTask();
+
+			applic = generateApplicant();
+
 
 			adr.setDepartment(dep);
 			proj.addEmployee(emp1);
@@ -117,16 +142,25 @@ public class CreateEmp
 			proj.addTask(task);
 			proj1.addEmployee(emp);
 			proj1.addEmployee(emp1);
-			proj1.addTask(task);
+			proj1.addTask(task1);
 			dep.setHead(emp);
 			dep.setAddress(adr);
 
+			emp.setAddress(adr3);
+			adr3.setPerson(emp);
+
+			applic.setAddress(adr1);
+			adr1.setPerson(applic);
+
 			task.setProject(proj);
+			task1.setProject(proj1);
 
 			emp.addProject(proj);
-			emp1.addProject(proj);
+			emp1.addProject(proj1);
 			emp.setDepartment(dep);
 			emp1.setDepartment(dep);
+			emp1.setAddress(adr4);
+			adr4.setPerson(emp1);
 		}
 
 

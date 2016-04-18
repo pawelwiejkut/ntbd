@@ -12,6 +12,7 @@ public class Address {
      private String street;
      private String postcode;
      private Department department;
+     private Person person;
 
     public Department getDepartment() {
         return department;
@@ -45,14 +46,22 @@ public class Address {
         this.postcode = postcode;
     }
 
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Address{");
-        sb.append("city='").append(city).append('\'');
-        sb.append(", street='").append(street).append('\'');
-        sb.append(", postcode='").append(postcode).append('\'');
-        sb.append(", department=").append(department);
-        sb.append('}');
-        return sb.toString();
+        return "Address{" +
+                "city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", postcode='" + postcode + '\'' +
+                ", department=" + department +
+                ", person=" + person +
+                '}';
     }
 }

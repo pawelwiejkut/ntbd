@@ -5,9 +5,6 @@
 
         <class name="Employee" table="EMPLOYEES" identity-type="datastore">
                     <inheritance strategy="new-table"/>
-            <field name="name">
-                <column name="name" />
-            </field>
             <field name="hiredate">
                 <column name="hiredate"/>
             </field>
@@ -70,6 +67,9 @@
             <field name="department">
                 <column length="40"/>
             </field>
+            <field name="person">
+                <column length="40" mapped-by="Address"/>
+            </field>
         </class>
 
         <class name="Task" table="Task">
@@ -87,5 +87,26 @@
                 <column length="23"/>
             </field>
         </class>
+
+        <class name="Person">
+        <inheritance strategy="new-table"/>
+            <field name="name">
+                <column name="name"/>
+            </field>
+            <field name="address">
+                <column name="address" />
+            </field>
+        </class>
+
+        <class name="Applicant">
+         <inheritance strategy="new-table"/>
+            <field name="applicationdate">
+                <column name="applicationdate"/>
+            </field>
+            <field name="position">
+                <column name="position"/>
+            </field>
+        </class>
+
     </package>
 </orm>
