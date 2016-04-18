@@ -31,9 +31,7 @@ public class Lista4 {
         Query q = pm.newQuery(Task.class);
         q.setFilter(String.format("project.employee.contains(emp) && emp.department.address.city==\"%s\"",s));
         List results = (List)q.execute();
-        results.forEach(System.out::println);
     }
-
 
     public static void main(String[] args) {
         try {

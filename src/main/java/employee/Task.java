@@ -47,12 +47,6 @@ public class Task {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Task{");
-        sb.append("description='").append(description).append('\'');
-        sb.append(", startDate=").append(startDate);
-        sb.append(", endDate=").append(endDate);
-        sb.append(", project=").append(project);
-        sb.append('}');
-        return sb.toString();
+        return  description + startDate + endDate + project ;
     }
 }
