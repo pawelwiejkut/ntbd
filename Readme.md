@@ -1,9 +1,3 @@
-Maven Instructions
-==================
-1. Run the command *mvn clean compile*. This builds everything and enhances the classes.
+### New Data Base Technology on Wroclaw University of Technology 
+This is a NTBD class project customized for IntellIJ and maven. It use a DataNucelus JPA for comunication with databases.
 
-2. Run the command *mvn datanucleus:schema-create*. This creates the schema for the tutorial.
-
-3. Run the command *exec:java*. This runs the tutorial.
-
-4. Run the command *mvn datanucleus:schema-delete*. This deletes the schema for the tutorial
